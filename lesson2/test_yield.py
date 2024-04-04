@@ -1,10 +1,12 @@
-import pytest 
+import pytest
+
 
 @pytest.fixture
 def example_fixture():
-    print("\n--- Setup part of the fixture ---")
+    print("\n--- Setup part of the fixture (create data) ---")
     yield
     print("\n--- Teardown part of the fixture ---")
+
 
 @pytest.fixture
 def sample_data():
@@ -12,8 +14,10 @@ def sample_data():
     yield data  # передача данных в тестовую функцию
     print("\n--- Teardown part of the fixture ---")
 
+
 def test_example(example_fixture):
     assert 1 == 1
+
 
 def test_sample_data(sample_data):
     assert sample_data["key"] == "value"
