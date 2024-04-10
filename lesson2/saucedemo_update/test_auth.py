@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from locators import USERNAME_FIELD, PASSWORD_FIELD, LOGIN_BUTTON, LOGIN_ERROR_MESSAGE
+from locators import USERNAME_FIELD, PASSWORD_FIELD, LOGIN_BUTTON, LOGIN_ERROR_MESSAGE, LOGIN_ERROR_MESSAGE_TEXT
 from data import LOGIN, PASSWORD, MAIN_PAGE
 
 
@@ -24,4 +24,4 @@ def test_auth_negative(driver):
     driver.find_element(By.XPATH, USERNAME_FIELD).send_keys('user')
     driver.find_element(By.XPATH, PASSWORD_FIELD).send_keys('user')
     driver.find_element(By.XPATH, LOGIN_BUTTON).click()
-    assert driver.find_element(By.XPATH, LOGIN_ERROR_MESSAGE).text == 'Epic sadface: Username and password do not match any user in this service'
+    assert driver.find_element(By.XPATH, LOGIN_ERROR_MESSAGE).text == LOGIN_ERROR_MESSAGE_TEXT
