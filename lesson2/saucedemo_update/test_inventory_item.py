@@ -33,7 +33,7 @@ def test_move_to_the_inventory_item_after_image_click():
     inventory_item_frame = browser.find_element(By.ID, INVENTORY_ITEM_FRAME)
     assert inventory_item_frame.is_displayed() is True
     backpack_item_text = browser.find_element(By.XPATH, BACKPACK_ITEM_TEXT)
-    assert backpack_item_text.text == ITEM_TEXT[0]
+    assert backpack_item_text.text == ITEM_TEXTS[0]
 
 
 # 2. Успешный переход к карточке товара после клика на название товара
@@ -45,7 +45,7 @@ def test_move_to_the_inventory_item_after_title_click():
     inventory_item_frame = browser.find_element(By.ID, INVENTORY_ITEM_FRAME)
     assert inventory_item_frame.is_displayed() is True
     backpack_item_text = browser.find_element(By.XPATH, BACKPACK_ITEM_TEXT)
-    assert backpack_item_text.text == ITEM_TEXT[0]
+    assert backpack_item_text.text == ITEM_TEXTS[0]
 
 
 def teardown():

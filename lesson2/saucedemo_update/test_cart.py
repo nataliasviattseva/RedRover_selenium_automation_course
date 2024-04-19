@@ -25,7 +25,7 @@ def test_add_to_cart_from_catalog():
     cart_button.click()
     backpack_item = browser.find_element(By.XPATH, BACKPACK_ITEM)
     assert backpack_item.is_displayed() is True
-    assert backpack_item.text == ITEM_TEXT[0]
+    assert backpack_item.text == ITEM_TEXTS[0]
 
 
 # 2. Удаление товара из корзины через корзину
@@ -57,7 +57,7 @@ def test_add_to_cart_from_inventory_item():
     cart_button.click()
     backpack_item = browser.find_element(By.XPATH, BACKPACK_ITEM)
     assert backpack_item.is_displayed() is True
-    assert backpack_item.text == ITEM_TEXT[0]
+    assert backpack_item.text == ITEM_TEXTS[0]
 
 
 # 4. Удаление товара из корзины через карточку товара

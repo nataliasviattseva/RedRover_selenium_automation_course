@@ -21,7 +21,7 @@ def test_a_z_filter():
     drop = Select(filtering)
     drop.select_by_visible_text(FILTER_VALUES[0])
     first_item = browser.find_element(By.XPATH, FIRST_ELEMENT)
-    assert first_item.text == ITEM_TEXT[0]
+    assert first_item.text == ITEM_TEXTS[0]
 
 
 # 2. Проверка работоспособности фильтра (Z to A)
@@ -31,7 +31,7 @@ def test_z_a_filter():
     drop = Select(filtering)
     drop.select_by_visible_text(FILTER_VALUES[1])
     first_item = browser.find_element(By.XPATH, FIRST_ELEMENT)
-    assert first_item.text == ITEM_TEXT[1]
+    assert first_item.text == ITEM_TEXTS[1]
 
 
 # 3. Проверка работоспособности фильтра (low to high)
@@ -41,7 +41,7 @@ def test_low_to_high_filter():
     drop = Select(filtering)
     drop.select_by_visible_text(FILTER_VALUES[2])
     first_item = browser.find_element(By.XPATH, FIRST_ELEMENT)
-    assert first_item.text == ITEM_TEXT[2]
+    assert first_item.text == ITEM_TEXTS[2]
 
 
 # 4. Проверка работоспособности фильтра (high to low)
@@ -51,4 +51,4 @@ def test_high_to_low_filter():
     drop = Select(filtering)
     drop.select_by_visible_text(FILTER_VALUES[3])
     first_item = browser.find_element(By.XPATH, FIRST_ELEMENT)
-    assert first_item.text == ITEM_TEXT[3]
+    assert first_item.text == ITEM_TEXTS[3]
