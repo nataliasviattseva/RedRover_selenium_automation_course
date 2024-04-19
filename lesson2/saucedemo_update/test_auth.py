@@ -15,12 +15,12 @@ def test_login_positive(driver):
     # кликаем на кнопку "Login"
     driver.find_element(By.XPATH, LOGIN_BUTTON).click()
 
-    assert driver.current_url == "https://www.saucedemo.com/inventory.html"
+    assert driver.current_url == f"{MAIN_PAGE}inventory.html"
 
 
 # 2. Авторизация используя некорректные данные (user, user)
 def test_auth_negative(driver):
-    driver.get('https://www.saucedemo.com')
+    driver.get(MAIN_PAGE)
     driver.find_element(By.XPATH, USERNAME_FIELD).send_keys('user')
     driver.find_element(By.XPATH, PASSWORD_FIELD).send_keys('user')
     driver.find_element(By.XPATH, LOGIN_BUTTON).click()
