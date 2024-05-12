@@ -1,6 +1,8 @@
 class OrderData:
-    first_name_error_message = "Error: First Name is required"
-    last_name_error_message = "Error: Last Name is required"
-    postal_code_error_message = "Error: Postal Code is required"
+    user_data_with_invalid_credentials = [["", "Ivanov", "12345", "Error: First Name is required"],
+                                          ["Ivan", "", "12345", "Error: Last Name is required"],
+                                          ["Ivan", "Ivanov", "", "Error: Postal Code is required"]]
 
-    user_data = [["", "Ivanov", "12345"], ["Ivan", "", "12345"], ["Ivan", "Ivanov", ""]]
+    user_data_with_valid_credentials = ["Ivan", "Ivanov", "12345", "Error: First Name is required"]
+
+    successful_message = "Thank you for your order!"
