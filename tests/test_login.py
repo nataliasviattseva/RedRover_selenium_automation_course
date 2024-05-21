@@ -9,7 +9,7 @@ class TestLogin:
 
     def test_login(self, driver):
         page = LoginPage(driver, self.url.base_url)
-        page.open()
+        page.open_with_login()
         page.login()
         actual_text = page.get_text(self.main_locators.TITLE)
         expected_text = "Products"
@@ -17,7 +17,7 @@ class TestLogin:
 
     def test_login1(self, driver):
         page = LoginPage(driver, self.url.base_url)
-        page.open()
+        page.open_with_login()
         page.login()
         expected_len = 6
         cards = page.get_length(self.main_locators.CARDS)

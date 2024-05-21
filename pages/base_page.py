@@ -1,3 +1,4 @@
+from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.ui import WebDriverWait as wait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -14,13 +15,14 @@ class BasePage:
         self.driver = driver
         self.url = url
 
-    def open(self):
-        self.driver.get(self.url)
-
     def login(self):
         self.element_is_visible(self.login_locators.USER_NAME).send_keys(self.user.standard_user)
         self.element_is_visible(self.login_locators.PASSWORD).send_keys(self.user.password)
         self.element_is_clickable(self.login_locators.LOGIN_BUTTON).click()
+
+    def open_with_login(self):
+        self.driver.get(self.url)
+        self.login()
 
     def get_text(self, locator):
         return self.element_is_visible(locator).text
@@ -39,3 +41,14 @@ class BasePage:
 
     def elements_are_visible(self, locator, timeout=timeout):
         return wait(self.driver, timeout).until(EC.visibility_of_all_elements_located(locator))
+
+    def element_is_not_present(self, locator, timeout=timeout):
+        return wait(self.driver, timeout).until(EC.invisibility_of_element_located(locator))
+
+    def element_is_displayed(self, element):
+        return element.is_displayed()
+
+    def select_by_value(self, locator, value):
+        select_element = self.driver.find_element(*locator)
+        select = Select(select_element)
+        select.select_by_value(value)

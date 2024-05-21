@@ -3,7 +3,7 @@ from selene.support.shared.jquery_style import s
 
 
 def visit(url):
-    browser.open(url)
+    browser.open_with_login(url)
 
 def start():
     return s('//*[@id="startTest"]')

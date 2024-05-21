@@ -1,5 +1,5 @@
 def test_auth_positive(login_page):
-    login_page.open()
+    login_page.open_with_login()
 
     login_page.start_button().click()
 

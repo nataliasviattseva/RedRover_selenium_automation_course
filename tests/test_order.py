@@ -11,7 +11,7 @@ class TestOrder:
 
     def test_order_with_valid_credentials(self, driver):
         page = OrderPage(driver, self.url.base_url)
-        page.open()
+        page.open_with_login()
         page.login()
         expected_text = self.data.successful_message
         actual_text = page.order_with_valid_credentials(self.data.user_data_with_valid_credentials)
@@ -22,7 +22,7 @@ class TestOrder:
     @pytest.mark.parametrize("lst_data", data.user_data_with_invalid_credentials)
     def test_order_with_wrong_credentials(self, driver, lst_data):
         page = OrderPage(driver, self.url.base_url)
-        page.open()
+        page.open_with_login()
         page.login()
         expected_text = lst_data[3]
         actual_text = page.order_with_wrong_credentials(lst_data)

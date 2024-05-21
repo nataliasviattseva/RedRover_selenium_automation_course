@@ -21,7 +21,7 @@ class OrderPage(BasePage):
         return self.get_text(self.order_locators.ERROR_MESSAGE)
 
     def add_card_to_cart(self):
-        self.element_is_clickable(self.main_locators.SAUCE_LABS_BACKPACK).click()
+        self.element_is_clickable(self.main_locators.ADD_SAUCE_LABS_BACKPACK).click()
         self.element_is_clickable(self.main_locators.CARD_BTN).click()
         self.element_is_clickable(self.cart_locators.CHECKOUT_BTN).click()
 
